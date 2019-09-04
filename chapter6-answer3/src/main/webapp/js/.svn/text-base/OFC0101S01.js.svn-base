@@ -1,0 +1,23 @@
+function setChangeCheckEvent(obj) {
+    //生日 childNodes[9]
+    if (obj.childNodes[11].innerHTML == '未审核'
+        || obj.childNodes[11].innerHTML == '再次申请'    
+    ){
+        //document.getElementById("editEventBtn").disabled=true;  
+        document.getElementById("startCheckEventBtn").style.display = "block";
+       
+    }else{
+        document.getElementById("startCheckEventBtn").style.display = "none";
+    }
+}
+
+function setInitCheckEvent() {
+        if(document.getElementById("selectedUserId").checked==true && 
+                (document.getElementById("selectedUserId").parentNode.parentNode.childNodes[11].innerHTML== '未审核'
+                   || document.getElementById("selectedUserId").parentNode.parentNode.childNodes[11].innerHTML== '再次申请' 
+                )){
+            document.getElementById("startCheckEventBtn").style.display = "block";
+        }else{
+            document.getElementById("startCheckEventBtn").style.display = "none";
+        } 
+}

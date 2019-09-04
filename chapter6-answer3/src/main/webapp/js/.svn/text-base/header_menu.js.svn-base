@@ -1,0 +1,65 @@
+// 获取ClassName
+document.getElementsByClassName = function(className) {
+    var retnode = [];
+    var myclass = new RegExp('\\b'+className+'\\b');
+    var elem = this.getElementsByTagName('*');
+    for (var j = 0; j < elem.length; j++) {
+        var classes = elem[j].className;
+        if (myclass.test(classes)) retnode.push(elem[j]);
+    }
+    return retnode;
+ };
+
+//隐藏所有
+function hideAll() {
+    var items = document.getElementsByClassName("optiton");
+        for (var i=0; i<items.length; i++) {
+        items[i].style.display = "none";
+    }
+ }
+ 
+//设置cookie
+function setCookie(sName,sValue,expireHours) {
+    var cookieString = sName + "=" + escape(sValue);
+    //判断是否设置过期时间
+    if (expireHours > 0) {
+    var varDate = new Date();
+    varDate.setTime(varDate.getTime() + expireHours * 3600 * 1000);
+        cookieString = cookieString + "; expire=" + varDate.toGMTString();
+    }
+    document.cookie = cookieString;
+ }
+ 
+//获取cookie
+function getCookie(sName) {
+    var aCookie = document.cookie.split(";");
+        for (var i=0; i < aCookie.length; i++){
+            var aCrumb = aCookie[i].split("=");
+    if (escape(sName) == aCrumb[0])
+        return unescape(aCrumb[1]);
+    }
+    return null;
+}
+ 
+window.onload = function() {
+    var show_item = "opt_1";
+    if (getCookie("show_item") != null) {
+        show_item= "opt_" + getCookie("show_item");
+    }
+    document.getElementById(show_item).style.display = "block";
+    var items = document.getElementsByClassName("title");
+    for (var i=0; i<items.length; i++) {
+        items[i].onclick = function() {
+            var object = document.getElementById("opt_" + this.name);
+            if (object.style.display != "block") {
+                hideAll();
+                object.style.display = "block";
+                setCookie("show_item",this.name,1);
+            }
+            else {
+                object.style.display = "none";
+            }
+        };
+    }
+ };
+ 

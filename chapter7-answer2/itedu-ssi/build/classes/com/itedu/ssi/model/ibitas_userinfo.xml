@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="userModel">
+ 
+  <!-- Use type aliases to avoid typing the full classname every time. -->
+  <typeAlias alias="userModel" type="com.itedu.ssi.model.UserModel"/>
+ 
+  <!-- Result maps describe the mapping between the columns returned
+       from a query, and the class properties.  A result map isn't
+       necessary if the columns (or aliases) match to the properties 
+       exactly. -->
+  <resultMap id="userModel" class="com.itedu.ssi.model.UserModel">
+        <result property="id"  column="id" />
+       <result property="username"     column="username" />
+  </resultMap>
+   
+  <!-- Insert example, using the Person parameter class -->
+  <insert id="insertPerson" parameterClass="userModel">
+    insert into t_user
+        (id, username )
+    values
+        (#id#, #username# )
+  </insert>
+  <!-- 根据ID查询 -->
+  <select id="selectByid" parameterClass="java.lang.String">
+  select id,username from t_user where id=#id#
+  </select>
+  
+  <select id="listUserModel" resultMap="userModel">
+  select id,username from t_user
+  </select>
+</sqlMap>
+    

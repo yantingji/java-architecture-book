@@ -1,0 +1,15 @@
+function changeOthers() {
+    var objSelect = document.getElementById("sta0102S01Form_imageTypeCd");
+    var index = objSelect.selectedIndex; 
+    var objectValue= objSelect.options[index].value;
+    if(objectValue=="001"){
+        document.getElementById("sta0102S01Form_yearCd").disabled=true; 
+        document.getElementById("sta0102S01Form_monthCd").disabled=true; 
+    }else if(objectValue=="002"){
+        document.getElementById("sta0102S01Form_yearCd").disabled=false; 
+        document.getElementById("sta0102S01Form_monthCd").disabled=true; 
+     }else if(objectValue=="003"){
+         document.getElementById("sta0102S01Form_yearCd").disabled=false; 
+         document.getElementById("sta0102S01Form_monthCd").disabled=false;  
+     } 
+}

@@ -1,0 +1,56 @@
+function resizeImage(image)
+{
+    imageObjcect.Obj = ( image && typeof image == 'object' ) ? image : document.getElementById(image);
+    return imageObjcect;
+}
+var imageObjcect =
+{
+    Obj : null ,
+    
+    //按给定的宽和高进行智能缩小
+    resize : function ( nWidth , nHeight )  {
+        var w , h , p1 , p2;
+        //计算宽和高的比例
+        p1 = nWidth / nHeight;
+        p2 = imageObjcect.Obj.width / imageObjcect.Obj.height;
+        
+        w = 0; h = 0;
+        if( p1 < p2 ) {
+            //按宽度来计算新图片的宽和高
+            w = nWidth;
+            h = nWidth * ( 1 / p2 );
+        } else {
+            //按高度来计算新图片的宽和高
+            h = nHeight;
+            w = nHeight * p2;
+        }
+        imageObjcect.Obj.width = w;
+        imageObjcect.Obj.height = h;
+    },
+    
+    //按给定的宽和高进行固定缩小(会出现图片变形情况)
+    resizedByWH : function ( nWidth , nHeight ){
+        imageObjcect.Obj.width = nWidth;
+        imageObjcect.Obj.height = nHeight;
+    },
+    
+    //按给定的宽进行等比例缩小
+    resizedByWidth : function ( nWidth ){
+        var p = imageObjcect.Obj.width / imageObjcect.Obj.height;
+        imageObjcect.Obj.width = nWidth;
+        imageObjcect.Obj.height = nWidth * ( 1 / p );
+    },
+    
+    //按给定的高进行等比例缩小
+    resizedByHeight : function ( nHeight ){
+        var p = imageObjcect.Obj.width / imageObjcect.Obj.height;
+        imageObjcect.Obj.height = nHeight;
+        imageObjcect.Obj.width = nHeight * p;
+    },
+    
+    //宽和高按百分比缩小
+    resizedByPer : function ( nWidthPer , nHeightPer ){
+        imageObjcect.Obj.width = parseInt(imageObjcect.Obj.width * nWidthPer / 100);
+        imageObjcect.Obj.height = parseInt(imageObjcect.Obj.height * nHeightPer / 100);
+    }
+};

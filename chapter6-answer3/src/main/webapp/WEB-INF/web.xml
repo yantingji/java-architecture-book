@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>SpringMVC_01</display-name>
+    <!-- 验证图片配置 -->
+     <servlet>
+    <servlet-name>ValidateCodeServlet</servlet-name>
+    <servlet-class>com.itedu.web.base.servlet.ValidateCodeServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ValidateCodeServlet</servlet-name>
+    <url-pattern>/servlet/getValidateImageCode</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -1,0 +1,6 @@
+function setReadEvent(obj) {
+   var selectMsgId= obj.parentNode.parentNode.childNodes[0].nextSibling.value;
+   document.getElementById("selectedHiddenMsgId").value =selectMsgId;
+   // alert(document.getElementById("selectedHiddenMsgId").value);
+}
+

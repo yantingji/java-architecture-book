@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <bean id="test" class="com.itedu.ssi.struts2Action.TestStruts2Action" >
+       <property name="testService" ref="testService"/>
+    </bean>
+    <bean id="testService" class="com.itedu.ssi.service.TestServiceImpl">
+    <property name="userDao" ref="userDao"></property>
+    </bean>
+    <bean id="userDao" class="com.itedu.ssi.model.UserDao" >
+    <property name="sqlMapClient" ref="sqlMapClient"></property>
+    </bean>
+      <!-- 方便查找类路径下 jdbc.properties 并读取到内存中-->
+    <bean id="propertyConfigurer"
+    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+       <property name="locations">
+           <list>
+    <value>classpath:jdbc.properties</value>
+           </list>
+       </property>
+    </bean>
+    <!-- 数据源配制 -->
+    <bean id="dataSource"
+       class="org.apache.commons.dbcp.BasicDataSource">
+       <property name="driverClassName">
+           <value>${jdbc.driver}</value>
+       </property>
+       <property name="url">
+           <value>${jdbc.url}</value>
+       </property>
+       <property name="username">
+           <value>${jdbc.user}</value>
+       </property>
+       <property name="password">
+           <value>${jdbc.password}</value>
+       </property>
+    </bean>
+     <!-- 此处应注入ibatis配置文件，而非sqlMap文件，否则会出现“there is no statement.....异常” -->
+    <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+       <property name="configLocation">
+           <value>classpath:ibitas.xml</value>
+       </property>
+       <property name="dataSource" ref="dataSource" />
+    </bean>
+       
+</beans>

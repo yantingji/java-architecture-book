@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- top level element -->
+<!ELEMENT struts (interceptors?,action*)>
+
+<!-- action -->
+<!ELEMENT action (result*)>
+<!ATTLIST action name CDATA #REQUIRED>
+<!ATTLIST action class CDATA #REQUIRED>
+<!ATTLIST action method CDATA #IMPLIED>
+
+<!-- result -->
+<!ELEMENT result (#PCDATA )*>
+<!ATTLIST result name CDATA #REQUIRED>
+<!ATTLIST result type CDATA #IMPLIED>
+
+<!-- interceptors -->
+<!ELEMENT interceptors (interceptor*)>
+<!ATTLIST interceptors name CDATA #REQUIRED>
+
+<!-- interceptor -->
+<!ELEMENT interceptor EMPTY>
+<!ATTLIST interceptor class CDATA #REQUIRED>

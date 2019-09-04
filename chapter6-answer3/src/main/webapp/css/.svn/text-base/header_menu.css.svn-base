@@ -1,0 +1,139 @@
+/* 头部区域
+==========================================================*/
+#bas_panal {
+    margin: 0;
+    text-align: center;
+    width: 1500px;
+}
+
+#header {
+    margin: 0;
+    width: 1500px;
+    height: 125px;
+}
+
+#middle_left {
+    margin: 0;
+    float: left;
+}
+
+#middle_center {
+    width: 1502px;
+    height: 40px;
+    background: url(../images/mid_center.png);
+    background-size:1330px 40px;
+    -moz-background-size:1330px 40px;
+    background-repeat: repeat-x;
+}
+
+#middle_center_logout {
+    margin: 0 0 0 1300;
+}
+
+a:link,a:visited {
+    color: #385065;
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+#menu {
+    width: 150px;
+    margin: 0px 1px 1px 1px;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    list-style: none
+}
+
+#menu .item {
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    list-style: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    font: "";
+}
+
+a.title:link,a.title:visited,a.title:hover {
+    display: block;
+    background: url(../images/main_menu.png) no-repeat;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
+    width: 200px;
+    line-height: 45px;
+    cursor: pointer;
+    text-decoration: none
+}
+
+#menu .item ul {
+    border: 1px solid #9FACB7;
+    margin: 0;
+    width: 180px;
+    padding: 0px 0px 1px 1px;
+    background: #fff;
+    list-style: none;
+    display: none
+}
+
+#menu .item ul li {
+    display: block;
+    font-size: 18px;
+    background-image: url(../images/inner_menu.png);
+    height: 30px;
+    margin-top: 7px;
+}
+
+.menu_character {
+    color: #FFFFFF
+}
+
+#left_menu {
+    clear: both;
+    float: left;
+    width: 190px;
+    height: 670px;
+    margin: 0px 0px 1px 1px;
+}
+
+#right_contents {
+    padding: 0px 0px 0px 0px;
+}
+
+#right_contents .right_table {
+    background: url(../images/contents_bakground.png);
+    background-repeat: repeat-x;
+    height: 635px;
+    width: 1208px;
+    padding: 0 0 0 400;
+    margin: 0px 20px 1px 20px;
+}
+
+#logout_btn {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 20;
+    left: 1500px;
+    top: 55px;
+}
+
+#right_contents_items {
+    position: absolute;
+    top: 410px;
+    width: 300px;
+    height: 200px;
+    z-index: 22;
+    left: 750px;
+}
+
+#right_contents_items2 {
+    position: absolute;
+    top: 430px;
+    width: 300px;
+    height: 200px;
+    z-index: 22;
+    left: 750px;
+}

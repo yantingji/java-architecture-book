@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+ 
+<sqlMapConfig>
+<!-- 启用命名空间 -->
+<!-- <setting useStatementNamespaces="true"/> -->
+ 
+    <settings cacheModelsEnabled="true" enhancementEnabled="true"
+       lazyLoadingEnabled="true" errorTracingEnabled="false" maxRequests="32"
+       maxSessions="10" maxTransactions="5" useStatementNamespaces="true" />
+ 
+    <sqlMap resource="com/itedu/ssi/model/ibitas_userinfo.xml" />
+    
+</sqlMapConfig>

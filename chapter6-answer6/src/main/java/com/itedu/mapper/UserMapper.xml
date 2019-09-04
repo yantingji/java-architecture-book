@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itedu.mapper.UserMapper">
+<!-- 通过用户名和密码查询User -->
+  <select id="selectUserByUsernameAndPassword" resultType="com.itedu.dto.UserDto" parameterType="com.itedu.dto.UserDto">
+  	select * from t_user where name = #{name,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
+  </select>
+</mapper>

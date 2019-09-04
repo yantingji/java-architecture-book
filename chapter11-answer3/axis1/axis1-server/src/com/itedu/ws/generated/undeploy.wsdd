@@ -1,0 +1,15 @@
+<!-- ハンドラ／チェインやサービスをアンデプロイする場合にはこのファイルを使用します/ [en]-(Use this file to undeploy some handlers/chains and services)    -->
+<!-- これを実行するには2つの方法があります: / [en]-(Two ways to do this:)                                                                                                    -->
+<!--   java org.apache.axis.client.AdminClient undeploy.wsdd                                                                                                           -->
+<!--      このコマンドをaxisサーバが起動した後に実行する方法 / [en]-(after the axis server is running)                                                                  -->
+<!-- 或いは / [en]-(or)                                                                                                                                                                   -->
+<!--   java org.apache.axis.utils.Admin client|server undeploy.wsdd                                                                                                    -->
+<!--      起動中のAxisエンジンと同ディレクトリへ移動した後、これらのコマンドを実行する方法です / [en]-(from the same directory that the Axis engine runs) -->
+
+<undeployment
+    xmlns="http://xml.apache.org/axis/wsdd/">
+
+  <!-- CalculatorService WSDL service からのサービス / [en]-(Services from CalculatorService WSDL service) -->
+
+  <service name="calculator"/>
+</undeployment>

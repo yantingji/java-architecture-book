@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+ elementFormDefault="qualified" 
+ targetNamespace="http://www.com.itedu.spring.samples.com/tickets"
+ xmlns:tickets="http://www.com.itedu.spring.samples.com/tickets">
+  <xs:element name="ticketRequest">
+    <xs:complexType>
+      <xs:attribute name="filmId" use="required" type="xs:string"/>
+      <xs:attribute name="quantity" use="required" type="xs:integer"/>
+      <xs:attribute name="sessionDate" use="required" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="ticketResponse">
+    <xs:complexType>
+      <xs:attribute name="amount" use="required" type="xs:decimal"/>
+      <xs:attribute name="confirmationId" use="required" type="xs:string"/>
+      <xs:attribute name="filmId" use="required" type="xs:string"/>
+      <xs:attribute name="quantity" use="required" type="xs:integer"/>
+      <xs:attribute name="sessionDate" use="required" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

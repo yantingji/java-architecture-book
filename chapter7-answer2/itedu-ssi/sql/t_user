@@ -1,0 +1,10 @@
+CREATE TABLE public.t_user
+(
+    id character varying(64) COLLATE pg_catalog."default" NOT NULL,
+    username character varying(64) COLLATE pg_catalog."default"
+    CONSTRAINT t_user_pkey PRIMARY KEY (id)
+)
+
+INSERT INTO public.t_user(id, username)	VALUES ('1', 'itedu1');
+INSERT INTO public.t_user(id, username)	VALUES ('2', 'itedu2');
+commit;

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper nameSpace="com.itedu365.test.mapper.UserMapper">
+	<select id="getUserById" resultType="com.itedu365.test.entity.User">
+		select username from t_user where id=?
+	</select>
+</mapper>

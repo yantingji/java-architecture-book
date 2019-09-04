@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration  
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>  
+      
+<!-- 全局 setting 配置，根据需要添加  -->
+	<!--开启二级缓存  -->
+	<settings>
+		<setting name="cacheEnabled" value="true"/>
+	</settings>
+	
+	
+	<!-- 配置mapper,由于使用 spring 和mybatis 的整合包进行 mapper 扫描，这里不需要配置了
+		必须遵循：mapper.xml 和 mapper.java 文件同名且在同一个目录下
+	 -->
+	 <!-- <mappers>
+	 </mappers> -->
+</configuration>  

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    version="2.0"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+    <description><![CDATA["To make it easier to access dynamic data;
+                        the Apache Struts framework includes a library of custom tags.
+                        The tags interact with the framework's validation and internationalization features;
+                        to ensure that input is correct and output is localized.
+                        The Struts Tags can be used with JSP FreeMarker or Velocity."]]></description>
+    <display-name>"YFANN.COM Tags"</display-name>
+    <tlib-version>1.0</tlib-version>
+    <short-name>it</short-name>
+    <uri>/itedu-tags</uri>
+
+    <tag>
+        <name>pageLink</name>
+        <tag-class>com.itedu.tag.PageLinkTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>action</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>namespace</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>method</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>pageSize</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+</taglib>

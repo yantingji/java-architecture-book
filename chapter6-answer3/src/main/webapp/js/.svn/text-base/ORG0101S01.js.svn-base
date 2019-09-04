@@ -1,0 +1,37 @@
+function setChangeEditEvent(obj) {
+    if (obj.childNodes[19].innerHTML == '正常' ){
+        //document.getElementById("startStopEventBtn").disabled=false; 
+        //document.getElementById("startRestartEventBtn").disabled=true; 
+        document.getElementById("startStopEventBtn").style.display = "block";
+        document.getElementById("startRestartEventBtn").style.display = "none";
+    }else{
+         document.getElementById("startStopEventBtn").style.display = "none";
+         document.getElementById("startRestartEventBtn").style.display = "block";
+    }
+}
+
+function setInitEditEvent() {
+    if(document.getElementById("selectedUserId").parentNode.parentNode.childNodes[19].innerHTML== '正常'){
+        document.getElementById("startStopEventBtn").style.display = "block";
+        document.getElementById("startRestartEventBtn").style.display = "none";
+    }else{
+        document.getElementById("startStopEventBtn").style.display = "none";
+        document.getElementById("startRestartEventBtn").style.display = "block";
+    } 
+    
+}
+
+function changeSearchCountry(){
+    var objSelect = document.getElementById("org0101S01Form_searchNowCountryCd");
+    var index = objSelect.selectedIndex; 
+    var objectValue= objSelect.options[index].value;
+    if(objectValue=="000" || objectValue=="001" ){
+        document.getElementById("org0101S01Form_searchNowProvince").disabled=false;  
+        document.getElementById("org0101S01Form_searchNowCity").disabled=false;  
+        document.getElementById("org0101S01Form_searchNowArea").disabled=false;  
+    }else {
+        document.getElementById("org0101S01Form_searchNowProvince").disabled=true;  
+        document.getElementById("org0101S01Form_searchNowCity").disabled=true;  
+        document.getElementById("org0101S01Form_searchNowArea").disabled=true;  
+     }
+}

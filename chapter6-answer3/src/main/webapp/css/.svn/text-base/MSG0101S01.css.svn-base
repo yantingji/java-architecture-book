@@ -1,0 +1,33 @@
+div#nifty {
+    margin: 0 10%;
+    background: #8080C0
+}
+
+b.rtop,b.rbottom {
+    display: block;
+    background: #E6CAFF
+}
+
+b.rtop b,b.rbottom b {
+    display: block;
+    height: 1px;
+    overflow: hidden;
+    background: #8080C0
+}
+
+b.r1 {
+    margin: 0 5px
+}
+
+b.r2 {
+    margin: 0 3px
+}
+
+b.r3 {
+    margin: 0 2px
+}
+
+b.rtop b.r4,b.rbottom b.r4 {
+    margin: 0 1px;
+    height: 2px
+}

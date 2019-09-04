@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:oxm="http://www.springframework.org/schema/oxm" xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-3.0.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/ws http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd">
+
+	<context:component-scan base-package="com.itedu.spring.integration.gateway,com.itedu.spring.integration.interceptor" />
+	
+	<!-- Initial service request -->
+	<int:gateway id="systemEntry" default-request-channel="requestChannel" default-reply-channel="responseChannel"
+		service-interface="com.itedu.spring.integration.ws.gateway.TicketGateway" />
+
+	<int:channel id="requestChannel"/>
+
+	<int-ws:outbound-gateway id="marshallingGateway"
+		request-channel="requestChannel" reply-channel="responseChannel" reply-timeout="50000"
+		uri="http://localhost:8080/spring-ws-tickets/tickets" marshaller="marshaller"
+		unmarshaller="marshaller" message-sender="messageSender"  >
+	
+	    <int-ws:request-handler-advice-chain>
+	        <ref bean="retryAdvice" />
+	    </int-ws:request-handler-advice-chain>
+	</int-ws:outbound-gateway>
+
+	<oxm:jaxb2-marshaller id="marshaller" contextPath="com.itedu.spring.integration.ws.types" />
+	
+	<bean id="messageSender" class="org.springframework.ws.transport.http.HttpComponentsMessageSender">
+		<property name="connectionTimeout" value="500000"/>
+		<property name="readTimeout" value="100000"/>
+	</bean>
+	
+	<!-- Service is running - Response received -->
+	<int:channel id="responseChannel" />
+	
+	<bean id="retryAdvice" class="org.springframework.integration.handler.advice.RequestHandlerRetryAdvice" >
+	    <property name="retryTemplate">
+	        <bean class="org.springframework.retry.support.RetryTemplate">
+	            <property name="backOffPolicy">
+	                <bean class="org.springframework.retry.backoff.FixedBackOffPolicy">
+	                    <property name="backOffPeriod" value="5000" />
+	                </bean>
+	            </property>
+	            <property name="retryPolicy">
+	                <bean class="org.springframework.retry.policy.SimpleRetryPolicy">
+	                    <property name="maxAttempts" value="1" />
+	                </bean>
+	            </property>
+	        </bean>
+	    </property>
+	</bean>
+
+</beans>

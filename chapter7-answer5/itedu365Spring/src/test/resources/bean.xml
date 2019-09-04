@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans>
+	<bean id="studentService" class="com.itedu365.springframework.test.service.StudentServiceImpl">
+		<property name="studentDao" ref="studentDao" />
+	</bean>
+	<bean id="studentDao" class="com.itedu365.springframework.test.dao.StudentDaoImpl" />
+</beans>

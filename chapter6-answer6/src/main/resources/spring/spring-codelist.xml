@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    ">
+
+	<bean id="jdbcTemplateForCodeList" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+		<property name="fetchSize" value="${codelist.jdbc.fetchSize:1000}" />
+	</bean>
+
+	<bean id="AbstractJdbcCodeList" class="com.itedu.framework.codelist.JdbcCodeList"
+		abstract="true">
+		<property name="jdbcTemplate" ref="jdbcTemplateForCodeList" />
+	</bean>
+
+	<!-- 用户系统状态 -->
+	<bean id="CL_USER_SYSTEM_STATUS" class="com.itedu.framework.codelist.SimpleMapCodeList">
+		<property name="map">
+			<util:map key-type="java.lang.String" value-type="java.lang.String"
+				map-class="java.util.LinkedHashMap">
+				<entry key="1" value="正常" />
+				<entry key="2" value="暂停" />
+				<entry key="3" value="密码过期" />
+				<entry key="4" value="删除" />
+			</util:map>
+		</property>
+	</bean>
+	<!-- Master类别
+	<bean id="CL_MASTER_TYPE" parent="AbstractJdbcCodeList">
+		<property name="querySql"
+			value="SELECT distinct code_type FROM t_master  ORDER BY code_type" />
+		<property name="valueColumn" value="code_type" />
+		<property name="labelColumn" value="code_type" />
+	</bean>-->
+
+
+</beans>

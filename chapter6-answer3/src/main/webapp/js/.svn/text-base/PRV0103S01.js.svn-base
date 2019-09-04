@@ -1,0 +1,12 @@
+function changeProperty() {
+    var objSelect = document.getElementById("prv0103S01Form_levelCd");
+    var index = objSelect.selectedIndex; 
+    var objectValue= objSelect.options[index].value;
+    if(objectValue=="001"){
+        document.getElementById("prv0103S01Form_fatherId").disabled=true; 
+        document.getElementById("prv0103S01Form_authId").disabled=true; 
+    }else {
+         document.getElementById("prv0103S01Form_fatherId").disabled=false; 
+         document.getElementById("prv0103S01Form_authId").disabled=false;  
+     } 
+}

@@ -1,0 +1,132 @@
+body {
+    background-color: #2469ac;
+    font-size: 16px;
+    margin: 0;
+    display: block;
+}
+
+.lableSize {
+    font-family: 微软雅黑;
+    text-shadow: 1px 1px 3px #fff;
+}
+
+.input_txt {
+    width: 180px;
+    border: solid 1px #ccc;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1) inset;
+    height: 30px;
+    text-indent: 10px;
+}
+
+.input_txt:focus {
+    box-shadow: 0 0 4px rgba(255, 153, 164, 0.8);
+    border: solid 1px #B00000;
+}
+
+.border_radius {
+    border-radius: 5px;
+    color: #B00000;
+}
+
+ .validateCode {
+        position: absolute;
+        width: 180px;
+        height: 80px;
+        background-color:#f5f5f5;
+        border: 1px solid black;
+        z-index:15;
+        }
+        
+        
+.container {
+    width: 700px;;
+    align: center;
+    height: 380px;
+    background-image: url("../images/login_back.png");
+    overflow: hidden;
+    position: absolute;
+    left: 30%;
+    top: 155px;
+    float: left;
+}
+
+.loginTable {
+    font-weight: bold;
+}
+
+#left_header {
+    position: absolute;
+    width: 200px;
+    height: 115px;
+    z-index: 20;
+    font-family: "宋体";
+    left: 25px;
+    top: 145px;
+    float: left;
+}
+
+#submit_botton {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    z-index: 20;
+    left: 500px;
+    top: 165px;
+}
+
+#login_submit_btn {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    z-index: 20;
+    left: 500px;
+    top: 154px;
+}
+
+#login_regist_btn {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    z-index: 20;
+    left: 500px;
+    top: 260px;
+}
+
+
+#message_area {
+    background: transparent;
+    margin-left: 30px;
+    width: 50%;
+    height: 130px;
+    border: 1px solid #696;
+    padding: 1px 0;
+    text-align: left;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: #666 0px 0px 10px;
+    -moz-box-shadow: #666 0px 0px 10px;
+    box-shadow: #666 0px 0px 10px;
+    background: #FFF5EE;
+    z-index:25;
+}
+#message_area p {
+    color: red;
+}
+
+.message_area_content {
+    padding: 1px 1px 1px 10px;
+    height: 130px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* 输入错误时输入框式样
+==========================================================*/
+.input_txt_error{
+    width: 180px;
+    box-shadow: 0 0 4px rgba(255, 153, 164, 0.8);
+    border: solid 2px #B00000;
+    height: 30px;
+    text-indent: 10px;
+}

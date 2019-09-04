@@ -1,0 +1,132 @@
+//对字符串前后空格剪切
+String.prototype.trim = function(){
+  return this.replace(/(^\s*)|(\s*$)/g, "");
+};
+
+//防止双重提交
+function checkDoubleSubmit(){
+    if (window.document.readyState != null &&
+            window.document.readyState != 'complete')  {
+        alert("正在处理，请稍等！");
+        return false;
+    }
+    else   {
+        MessageClear();
+        return true;
+    }
+}
+
+//获得对象绝对坐标位置
+function getAbsPosition(object) {
+    object = $(object);
+    if (object.length == 0) {
+        return false;
+    }
+    object = object[0];
+    var left, top;
+    left = object.offsetLeft;
+    top = object.offsetTop;
+    while (object = object.offsetParent) {
+        left += object.offsetLeft;
+        top += object.offsetTop;
+    }
+    return {
+        left: left,
+        top: top
+    };
+}
+
+function setRadioSelect(obj) {
+    if (obj.childNodes[0].nextSibling.childNodes[0].nextSibling.type == 'radio'){
+        obj.childNodes[0].nextSibling.childNodes[0].nextSibling.checked = true;
+    }
+}
+
+
+/**  
+ * 操作全选复选框事件  
+ **/  
+ function doCheckAll(obj,checkBoxId)  
+ {  
+     var inputs=document.getElementsByTagName("input");  
+     for(var i=0;i<inputs.length;i++)  
+     {  
+         //刷选出所有复选框
+         if(inputs[i].type=="checkbox" && inputs[i].id!=checkBoxId) {  
+             inputs[i].checked=obj.checked;   
+         }  
+     }  
+ }  
+   
+ /**  
+ * 复选框变化  全选按钮变化  
+ **/  
+ function toCheckSon(obj,checkBoxId){  
+    //当此复选框未选中 全选为未选
+     if(obj==false){  
+         document.getElementById(checkBoxId).checked=false;  
+         return ;  
+     }  
+   //获取所有复选框  
+     var chkInputs=getCheckBox(checkBoxId); 
+     var j=0;  
+     for(var i=0;i<chkInputs.length;i++) {  
+         if(chkInputs[i].checked==obj)  
+             j++;  
+         else  
+             break;  
+     }     
+   //当所有复选框为同一状态时 赋值全选同一状态  
+     if(j==chkInputs.length) {
+         document.getElementById(checkBoxId).checked=obj;  
+     }
+ }  
+   
+ /**  
+ * 获取所有复选框  
+ **/  
+ function getCheckBox(checkBoxId){  
+     var inputs=document.getElementsByTagName("input");  
+     var chkInputs=new Array();  
+     var j=0;  
+     for(var i=0;i<inputs.length;i++) {  
+        //刷选出所有复选框  
+         if(inputs[i].type=="checkbox" && inputs[i].id!=checkBoxId){  
+             chkInputs[j]=inputs[i];  
+             j++;  
+         }  
+     }  
+     return chkInputs;  
+ }
+ 
+function logout() { 
+    //获取JSP页面中的一个表单元素 
+    var targetForm = document.forms[0]; 
+    //动态修改目标表单的action属性 
+    targetForm.action = "/sys/sys0201S01!logoutEvent.do"; 
+    //提交表单 
+    targetForm.submit(); 
+} 
+
+function forwardMain() { 
+    //获取JSP页面中的一个表单元素 
+    var targetForm = document.forms[0]; 
+    //动态修改目标表单的action属性 
+    targetForm.action = "/sys/sys0101S01.do"; 
+    //提交表单 
+    targetForm.submit(); 
+} 
+
+function forwardLogin() { 
+    //获取JSP页面中的一个表单元素 
+    var targetForm = document.forms[0]; 
+    //动态修改目标表单的action属性 
+    targetForm.action = "/struts-global/welcome.do"; 
+    //提交表单 
+    targetForm.submit(); 
+} 
+
+function initCursorPosation(obj){
+    document.getElementById(obj).focus();
+}
+

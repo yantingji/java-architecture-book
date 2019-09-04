@@ -1,0 +1,19 @@
+function setChangeEditEvent(obj) {
+    //生日 childNodes[9]
+    if (obj.childNodes[9].innerHTML == '已注册'){
+        //document.getElementById("editEventBtn").disabled=true;  
+        document.getElementById("editEventBtn").style.display = "block";
+       
+    }else{
+        document.getElementById("editEventBtn").style.display = "none";
+    }
+}
+
+function setInitEditEvent() {
+    //生日 childNodes[9]
+        if(document.getElementById("selectedUserId").checked==true && document.getElementById("selectedUserId").parentNode.parentNode.childNodes[9].innerHTML== '已注册'){
+            document.getElementById("editEventBtn").style.display = "block";
+        }else{
+            document.getElementById("editEventBtn").style.display = "none";
+        } 
+}
