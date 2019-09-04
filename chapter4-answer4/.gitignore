@@ -17,7 +17,6 @@
 .springBeans
 
 #Eclipse
-.project
 .classpath
 .settings
 
