@@ -17,8 +17,7 @@
 .springBeans
 
 #Eclipse
-.classpath
-.settings
+
 
 #Others
 *.log
