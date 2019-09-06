@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+	
+	<context:annotation-config />
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close">
+        <property name="driverClassName" value="org.postgresql.Driver" />
+        <property name="url"
+            value="jdbc:postgresql://localhost:5432/postgres" />
+        <property name="username" value="postgres" />
+        <property name="password" value="123456" />
+        <!-- 连接池启动时的初始值 -->
+        <property name="initialSize" value="1" />
+        <!-- 连接池的最大值 -->
+        <property name="maxActive" value="500" />
+        <!-- 最大空闲值。-->
+        <property name="maxIdle" value="2" />
+        <!-- 最小空闲值。 -->
+        <property name="minIdle" value="1" />
+    </bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" /> <!-- 数据源  -->
+		<property name="mappingResources">
+			<list>
+			<!-- Hibernate的实体bean的映射文件(可有多个) -->
+				<value>com/itedu/bean/Person.hbm.xml</value> 
+			</list>
+		</property>
+		<!-- hibernateProperties是用来配置Hibernate的属性信息 -->
+		<property name="hibernateProperties">
+			<value>
+			<!-- hibernate.dialect=org.hibernate.dialect.MySQLDialect -->
+				hibernate.hbm2ddl.auto=update
+				hibernate.show_sql=false
+				hibernate.format_sql=false
+			</value>
+		</property>
+	</bean>
+	
+	<!-- 配置针对Hibernate的事务管理器，事务管理器对sessionFactory对象创建出来的session进行管理 -->
+	<bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	  	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<tx:annotation-driven transaction-manager="txManager" />
+	
+	<bean id="personService" class="com.itedu.service.impl.PersonServiceBean" />
+</beans>
