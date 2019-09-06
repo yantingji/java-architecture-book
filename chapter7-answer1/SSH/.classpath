@@ -14,7 +14,5 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="D:/tools/pleiades-2018-12-java-win-64bit-jre_20181224/pleiades/tomcat/9/lib/jsp-api.jar"/>
-	<classpathentry kind="lib" path="D:/tools/pleiades-2018-12-java-win-64bit-jre_20181224/pleiades/tomcat/9/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

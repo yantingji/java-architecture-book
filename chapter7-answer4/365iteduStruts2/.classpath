@@ -11,7 +11,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ognl-3.0.4.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javassist-3.4.GA.jar"/>
-	<classpathentry kind="lib" path="D:/tools/pleiades-2018-12-java-win-64bit-jre_20181224/pleiades/tomcat/9/lib/jsp-api.jar"/>
-	<classpathentry kind="lib" path="D:/tools/pleiades-2018-12-java-win-64bit-jre_20181224/pleiades/tomcat/9/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

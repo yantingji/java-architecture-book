@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.itedu365</groupId>
-  <artifactId>chapter2-content</artifactId>
+  <artifactId>chapter2-design-pattern</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>chapter2-content</name>
+  <name>chapter2-design-pattern</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -18,7 +18,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
