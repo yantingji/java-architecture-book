@@ -1,6 +1,6 @@
 package com.itedu365.chapter2.strategy;
 
-public class StrategyA extends Strategy {
+public class StrategySpring extends Strategy {
 
 	@Override
 	public void show() {

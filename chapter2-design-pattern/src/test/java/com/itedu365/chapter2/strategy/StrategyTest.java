@@ -12,12 +12,12 @@ public class StrategyTest {
 
 		// 春节来了，使用春节促销活动
 		System.out.println("对于春节：");
-		salesMan = new ContextSalesMan("A");
+		salesMan = new ContextSalesMan("spring");
 		salesMan.SalesManShow();
 
 		// 中秋节来了，使用中秋节促销活动
 		System.out.println("对于中秋节：");
-		salesMan = new ContextSalesMan("B");
+		salesMan = new ContextSalesMan("fall");
 		salesMan.SalesManShow();
 
 	}

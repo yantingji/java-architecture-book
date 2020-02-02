@@ -9,12 +9,12 @@ public class ContextSalesMan {
 	public ContextSalesMan(String festival) {
 		switch (festival) {
 		// 春节就使用春节促销活动
-		case "A":
-			strategy = new StrategyA();
+		case "spring":
+			strategy = new StrategySpring();
 			break;
 		// 中秋节就使用中秋节促销活动
-		case "B":
-			strategy = new StrategyB();
+		case "fall":
+			strategy = new StrategyFall();
 			break;
 		}
 

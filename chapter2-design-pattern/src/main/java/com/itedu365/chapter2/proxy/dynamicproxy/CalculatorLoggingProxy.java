@@ -14,7 +14,7 @@ public class CalculatorLoggingProxy {
     
     public Calculator getLoggingProxy(){
         
-        Calculator proxy = null;
+        Calculator proxyObject = null;
         InvocationHandler h = new InvocationHandler() {
             /**
              * proxy：正在返回的那个代理对象，一般情况下，在invoke方法中都不使用该对象。
@@ -33,10 +33,10 @@ public class CalculatorLoggingProxy {
             }
         };
         
-        proxy = (Calculator) Proxy.newProxyInstance( target.getClass().getClassLoader(), 
+        proxyObject = (Calculator) Proxy.newProxyInstance( target.getClass().getClassLoader(), 
                 target.getClass().getInterfaces(), h);
         
-        return proxy;
+        return proxyObject;
 
     }
 
