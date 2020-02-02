@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.itedu365.chapter2.factory.Calculator;
-import com.itedu365.chapter2.factory.CalculatorFactory;
+import com.itedu365.chapter2.simplefactory.Calculator;
+import com.itedu365.chapter2.simplefactory.CalculatorFactory;
 
 public class CalculatorFactoryTest {
 
